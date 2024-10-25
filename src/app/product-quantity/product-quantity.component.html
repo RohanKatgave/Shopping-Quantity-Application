@@ -1,0 +1,13 @@
+<div *ngFor="let product of products" (click)="selectProduct(product)">
+  <h2>{{ product.name }}</h2>
+  <img [src]="product.image" alt="{{ product.name }}" />
+  <p>{{ product.description }}</p>
+  <p>Price: ${{ product.price }}</p>
+  <p>Available Quantity: {{ product.availableQuantity }}</p>
+</div>
+
+<label for="quantity">Quantity:</label>
+<input type="number" [(ngModel)]="userQuantity" id="quantity" />
+
+<button (click)="addToCart()">Add to Cart</button>
+<p *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</p>
